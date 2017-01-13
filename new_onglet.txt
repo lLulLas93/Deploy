@@ -1,0 +1,5 @@
+//Nouvelle page 
+<a href="lien.html" onclick="window.open(this.href); return false;"></a>
+//Tester sa connection à internet
+if(window.parent) 
+window.parent.connTester.connectedStatuts = true; 
