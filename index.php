@@ -18,11 +18,14 @@ switch ($query) {
     case '':
         include 'controler/index.php';
         break; 
-	case 'dco':
-        include 'controler/co.php';
+	case 'accueil':
+        include 'controler/accueil.php';
         break;
 	case 'projet':
         include 'controler/projet.php';
+        break;
+	case 'profil':
+        include 'controler/profil.php';
         break;
   
   // Fin de partie de TOM
