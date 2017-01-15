@@ -21,8 +21,17 @@ switch ($query) {
 	case 'accueil':
         include 'controler/accueil.php';
         break;
-	case 'projet':
-        include 'controler/projet.php';
+	case 'create_projet':
+        include 'controler/create_projet.php';
+        break;
+	case 'view_projet':
+        include 'controler/view_projet.php';
+        break;
+	case 'deploy_projet':
+        include 'controler/deploy_projet.php';
+        break;
+	case 'profil':
+        include 'controler/profil.php';
         break;
 	case 'profil':
         include 'controler/profil.php';
