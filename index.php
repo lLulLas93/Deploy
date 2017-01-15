@@ -27,6 +27,24 @@ switch ($query) {
 	case 'profil':
         include 'controler/profil.php';
         break;
+	case 'view_projet':
+        include 'controler/view_projet.php';
+        break;
+	case 'deploy_projet':
+        include 'controler/deploy_projet.php';
+		break;	
+	case 'ddeploy_projet':
+        include 'controler/ddeploy_projet.php';
+		break;
+	case 'create_projet':
+        include 'controler/create_projet.php';
+        break;
+	case 'add_member':
+        include 'controler/add_member.php';
+        break;
+	case 'profil':
+        include 'controler/profil.php';
+        break;
   
   // Fin de partie de TOM
     default:
