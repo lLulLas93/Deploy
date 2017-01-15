@@ -1,15 +1,15 @@
 <?php 
 session_start();
 
-//Connexion a la base de donnée, Check connection
+// Connexion a la base de donnée, Check connection
 
-// try {
-    // $pdo = new PDO('mysql:host=localhost;dbname=programmation', 'root', 'toor');
-    // $pdo->exec('SET NAMES utf8');
-// } catch (PDOException $e) {
-    // print "Erreur !: ".$e->getMessage()."<br/>";
-    // die();
-// }
+try {
+    $pdo = new PDO('mysql:host=localhost;dbname=deploy', 'root', 'toor');
+    $pdo->exec('SET NAMES utf8');
+} catch (PDOException $e) {
+    print "Erreur !: ".$e->getMessage()."<br/>";
+    die();
+}
 $query = '';
 
 $query = (isset($_GET['page'])) ? $_GET['page'] : '';
@@ -17,7 +17,19 @@ $query = (isset($_GET['page'])) ? $_GET['page'] : '';
 switch ($query) {
     case '':
         include 'controler/index.php';
-        break; 
+        break;
+    case 'registerC':
+        include 'controler/registerC.php';
+        break;
+    case 'connexion':
+        include 'controler/connexion.php';
+        break;
+    case 'connexionC':
+        include 'controler/connexionC.php';
+        break;
+    case 'deconnexion':
+        include 'controler/deco.php';
+        break;		
 	case 'accueil':
         include 'controler/accueil.php';
         break;
@@ -45,7 +57,9 @@ switch ($query) {
 	case 'profil':
         include 'controler/profil.php';
         break;
-  
+    case 'member_area':
+        include 'controler/member_area.php';
+        break;
   // Fin de partie de TOM
     default:
         echo '<h1>Cette page est inexistante</h1>';

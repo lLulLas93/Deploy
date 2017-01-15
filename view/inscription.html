@@ -1,0 +1,94 @@
+<body class="full">
+    <div id="contact" class="content-section-a">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-6 col-md-offset-3 text-center wrap_title">
+                    <h2>Inscription</h2>
+                    <p class="lead" style="margin-top:0">Remplissez les champs ci-dessou.</p>
+                </div>
+
+                <form role="form" action="index.php?page=registerC" method="post">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="InputName">Votre Nom</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="firstname" id="InputName" placeholder="Entrez un nom" required>
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="InputName">Votre Prenom</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="secondname" id="InputName" placeholder="Entrez un prenom" required>
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span>
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-group">
+                            <label for="InputEmail">Votre Email</label>
+                            <div class="input-group">
+                                <input type="email" class="form-control" id="InputEmail" name="email" placeholder="Entrez un Email" required>
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="InputName">Votre Mot de passe</label>
+                            <div class="input-group">
+                                <input type="password" class="form-control" name="password" id="InputName" placeholder="Entrez un mot de passe" required>
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span>
+                            </div>
+                        </div>
+
+                        </br>
+                        <p class="submit"><button type="submit" class="btn wow tada btn-embossed btn-primary pull-right">Envoyer</button></p>
+
+                        </br>
+                        </br>
+                        </br>
+                    </div>
+
+                    <hr class="featurette-divider hidden-lg">
+                    <div class="col-md-5 col-md-push-1 address">
+
+                        <div class="form-group">
+                            <label for="InputName">Confirmation Mot de passe</label>
+                            <div class="input-group">
+                                <input type="password" class="form-control" name="repassword" id="InputName" placeholder="Confirmation mot de passe" required>
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span>
+                            </div>
+                        </div>
+
+                        </br>
+                        <fieldset>
+                            <legend>Statut</legend>
+
+                            <label for="statut">Etudiant</label>
+                            <input type="radio" name='statut' value="etudiant" /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <label for="statut">Professionnel</label>
+                            <input type="radio" name="statut" value="professionnel" />
+                        </fieldset>
+
+
+                        </br>
+                        <legend>Notification</legend>
+                        Voulez-vous reçevoir des notifications sur votre boîte mail ? </br>
+
+                        <input type="radio" name="noti" value="Oui" />
+                        <label for="noti">Oui</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type='radio' name="noti" value="Non" />
+                        <label for="noti">Non</label>
+                </form>
+
+
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
