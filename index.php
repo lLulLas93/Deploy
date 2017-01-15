@@ -21,9 +21,6 @@ switch ($query) {
     case 'registerC':
         include 'controler/registerC.php';
         break;
-    case 'connexion':
-        include 'controler/connexion.php';
-        break;
     case 'connexionC':
         include 'controler/connexionC.php';
         break;
