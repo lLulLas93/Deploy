@@ -1,6 +1,6 @@
-DROP DATABASE deploy;
-Create DATABASE deploy;
-use deploy;
+DROP DATABASE DeployDev;
+Create DATABASE DeployDev;
+use DeployDev;
 
 CREATE TABLE UTILISATEURS
 (ID_ut SMALLINT AUTO_INCREMENT PRIMARY KEY,
@@ -33,8 +33,8 @@ ID_projet SMALLINT,
 FOREIGN KEY (ID_projet) REFERENCES PROJETS (ID_projet));
 
 
-CREATE TABLE messages (
-ID_messages SMALLINT auto_increment PRIMARY KEY,
+CREATE TABLE MESSAGE 
+(ID_messages SMALLINT auto_increment PRIMARY KEY,
 Heure DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
 id_destinataire SMALLINT,
 id_projet SMALLINT,
@@ -44,9 +44,9 @@ ID_ut int,
 FOREIGN KEY (ID_ut) REFERENCES UTILISATEURS (ID_ut),
 statut SMALLINT,
 titre text NOT NULL,
-message text NOT NULL); 
+message text NOT NULL)); 
 
-INSERT INTO `utilisateurs` (`ID_ut`, `Prenom`, `Nom_ut`, `Mail`, `Mdp`, `Statut`) VALUES
+INSERT INTO `UTILISATEURS` (`ID_ut`, `Prenom`, `Nom_ut`, `Mail`, `Mdp`, `Statut`) VALUES
 (1, 'bot', 'bot', 'bot@bot', 'aqw', 'bot'),
 (2, 'azertyuiop', 'azertyuiop', 'aze@poiu', 'azertyuiop', 'etudiant'),
 (3, 'qsdfghjklvbn', 'wxcvbn', 'aze@poiu', 'wxcvbn', 'etudiant'),
@@ -62,20 +62,20 @@ INSERT INTO `utilisateurs` (`ID_ut`, `Prenom`, `Nom_ut`, `Mail`, `Mdp`, `Statut`
 (14, 'ezqcd', 'nimad', 'vprigaud@laposte.net', 'aze', 'O');
 
 
-INSERT INTO projets(Date_de_creation,Nom_p,Instigateur,Langage,Description,Logo,statut,difficultes,Participant)
+INSERT INTO PROJETS(Date_de_creation,Nom_p,Instigateur,Langage,Description,Logo,statut,difficultes,Participant)
 VALUES ('2016-12-12','deploy',1,'PHP&MYSQL','Cest nous','test.jpg','etudiant','100','4');
-INSERT INTO projets(Date_de_creation,Nom_p,Instigateur,Langage,Description,Logo,statut,difficultes,Participant)
+INSERT INTO PROJETS(Date_de_creation,Nom_p,Instigateur,Langage,Description,Logo,statut,difficultes,Participant)
 VALUES ('2016-12-12','nom_p2',2,'langage','description','F-D.jpg','statut','100','8');
-INSERT INTO projets(Date_de_creation,Nom_p,Instigateur,Langage,Description,Logo,statut,difficultes,Participant)
+INSERT INTO PROJETS(Date_de_creation,Nom_p,Instigateur,Langage,Description,Logo,statut,difficultes,Participant)
 VALUES ('2016-12-12','nom_p3',3,'langage','description','F-D.jpg','statut','100','9');
-INSERT INTO projets(Date_de_creation,Nom_p,Instigateur,Langage,Description,Logo,statut,difficultes,Participant)
+INSERT INTO PROJETS(Date_de_creation,Nom_p,Instigateur,Langage,Description,Logo,statut,difficultes,Participant)
 VALUES ('2016-12-12','nom_p4',4,'langage','description','F-D.jpg','statut','100','12');
 
 
-INSERT INTO messages(id_destinataire, ID_ut, titre, message) VALUES( 0, '1', '', 'Bienvenue');
+INSERT INTO MESSAGES(id_destinataire, ID_ut, titre, message) VALUES( 0, '1', '', 'Bienvenue');
 
 
-INSERT INTO `participants_pr` (`ID_participant_pr`, `ID_ut`, `ID_projet`) VALUES
+INSERT INTO `PARTICIPANTS_PR` (`ID_participant_pr`, `ID_ut`, `ID_projet`) VALUES
 (1, 14, 3),
 (2, 11, 3),
 (3, 3, 1),
