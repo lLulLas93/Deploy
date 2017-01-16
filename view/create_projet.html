@@ -2,17 +2,66 @@
 
             <div class="container-fluid" style="margin-bottom:200px;margin-top:-20px">
 
-                <!-- Page Heading -->
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1 class="page-header" align="center">
-                            Bienvenue sur notre Plate-forme
-							<img src="../Deploy/design/LOGO-OFFICIEL-2.png" style="width:304px;height:228px;">
-                        </h1><h4 align="center">Proposer un serveur d’hébergement mutualisé, comportant une plateforme d’outils 
-						collaboratifs tels qu’une dropbox, un outil de versionning et l’hébergement du code web.</h3>
-                    </div>
-                </div>
-    <!-- /#wrapper -->
+               <body>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+</br>	
+<form enctype="multipart/form-data"  action = "index.php?page=projet_add" class="STYLE-NAME" method = "POST">
+		<div align="center"><h1> Création Projet </h1>	<br/><br/><br/></div>	
+		<p>
+			<label for = "projet_nom">Entrer le nom de votre Projet : </label>
+			<input type ="text" name = "projet_nom" id = "projet_nom" placeholder='Chiilii'/>
+		</p>
+		
+		<p>
+			<label for = "langage">Entrer le(s) langage(s) : </label>
+<input type ="text" name = "langage" id = "langage" placeholder="Php&Mysql,Html,Css,Python"/>
+			
+		</p>
+		<p>
+			<label for = "participants">Entrer le nombres de participants : </label>
+			<input type ="number" name = "participants" id = "participants" min="1" placeholder="5"/>
+			
+		</p>
+		
+		<p>
+			<label for = "difficultés">Entrer le niveau de difficultés : </label>
+			<input type ="range" id="myRange" onclick="rang()"  step="10" value="0" name = "difficultes" />
+			<span id = "aff_rang"></span>%
+
+		</p>
+<script>
+		
+function rang() {
+    var x = document.getElementById("myRange").value;
+    document.getElementById("aff_rang").innerHTML = x;
+}
+		</script>
+
+		
+<script>
+function m() {
+document.getElementById("d_f").value= document.getElementById("d_d").value;
+
+}
+</script>
+		<p>
+					<label for = "img">Entrer une image pour votre projet : </label>
+					<input type ="hidden" name = "MAX_FILE_SIZE" value="10000000"/>
+					<input type ="file" name = "image"/>
+		
+		</p>
+		
+		<p>
+			<label for = "description">Entrer une description  votre projet : </label>
+			<textarea name = "description" rows="10" cols="50" placeholder="Valoriser votre projet.."/></textarea>
+			
+		</p>
+			<input type ="submit" value = "Envoyer"/>
+			<input type ="submit" onclick="imprimer()" value = "Imprimer"/>
+	</form>
+</body>
+
 
     <!-- jQuery -->
     <script src="design/Thème/startbootstrap-sb-admin-gh-pages/js/jquery.js"></script>
