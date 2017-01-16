@@ -28,23 +28,53 @@ for ($i = 0; $i < $total; $i++) {
 
         echo "<meta http-equiv='refresh' content='2; url=index.php?page=create_projet&projet' />";
 
-        $i = $total;
-        $i += 1;
-
-        $projet = 0;
-
     } else {
-        $projet = 1;
+      	
+	$rep_dest = "./modele/reception/";	
+	if(move_uploaded_file($_FILES['image']['tmp_name'],$rep_dest . $_FILES['image']['name'])){
+
+		echo'<br/>';
+		
+		print"Bon Travail :)"; 
+		echo'<br/>';
+		
+
+	}else {
+
+		print "PAS BON :( nb d'erreur ";
+		// print_r($_FILES['image']['error']);
+
+	}
+	//Recuperation de donnée
+	
+
+	$statut = $_SESSION['Statut'];
+	$a = date("Y-m-d");
+	$nom_p = addslashes($_POST["projet_nom"]);
+	$langage = addslashes($_POST["langage"]);
+	$participants = $_POST["participants"];
+	$description = addslashes($_POST["description"]);
+	$logo = $_FILES['image']['name'];
+	$difficultes = $_POST['difficultes'];
+	$date_de_creation = "$a";
+	$instigateur = $_SESSION['id'];
+	
+	
+	$pdo -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	
+	$insertion = "
+				INSERT INTO projets(Date_de_creation,Nom_p,Instigateur,Langage,Description,Logo,statut,difficultes,vote,Participant)
+				VALUES ('$date_de_creation','$nom_p',$instigateur,'$langage','$description','$logo','$statut','$difficultes',0,'$participants')
+				";
+	
+	$pdo->exec($insertion);
+			echo 'Valeurs bien inserée';
+		        echo "<meta http-equiv='refresh' content='1; url=index.php?page=projet_view' />";
+	echo'<br/>';
+	echo'<br/></h4></div>';
     }
 
 }
 
-if (isset($projet)) {
-    if ($projet == 1) {
-        require '/modele/register_projet.php';
-		include( './view/confirmation_projet.html' );
-
-    }
-}
 
 ?>

@@ -39,10 +39,7 @@ for ($i = 0; $i < $total; $i++) {
 
             $id_projet = $valeur;
             echo "<h1><br/><br/>Projet N° ".$valeur."</h1>";
-			echo "<form action='' method='POST'>
-				<button class='btn wow tada btn-embossed btn-primary pull-right' name='vote' valeur='$s'> Voter ce projet</button>
-				<input type='hidden' name='id_projet' value='$id_projet'>
-				</form>";
+			
 
        
         } else if ($n == "Logo" && $valeur) {
@@ -141,6 +138,13 @@ for ($i = 0; $i < $total; $i++) {
 									<button class='btn btn-info btn-xs' name='plus'>Echanger avec les membres groupe</button>
 									<input type='hidden' name='id_projet' value='$id_projet'>
 									</form>
+									
+									<form action='index.php?page=deploy_projet' method='GET'>
+									<input type='hidden' name='page' value='member_area'>
+									</br>										  
+									<button class='btn btn-info btn-xs' name='plus'>Deploiement du projet</button>
+									</form>
+								
 									";
 						}
 						if($results == 0){
