@@ -26,6 +26,9 @@ switch ($query) {
         break;
     case 'deconnexion':
         include 'controler/deco.php';
+        break;
+	case 'inscription':
+        include 'controler/inscription.php';
         break;		
 	case 'accueil':
         include 'controler/accueil.php';

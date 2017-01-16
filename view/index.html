@@ -194,32 +194,32 @@
                 <div class="col-lg-8 col-lg-offset-2">
                     <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
                     <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
-                    <form name="inscription" id="contactForm" novalidate>
+                    <form name="inscription" id="contactForm" enctype="multipart/form-data" action="index.php?page=inscription" method="post" novalidate>
 						<div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label>Prénom</label>
-                                <input type="text" class="form-control" placeholder="Prénom" id="firstname" required data-validation-required-message="Veuillez saisir votre prénom">
+                                <input type="text" class="form-control" placeholder="Prénom" name="prenom" id="firstname" required data-validation-required-message="Veuillez saisir votre prénom">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label>Nom</label>
-                                <input type="text" class="form-control" placeholder="Nom" id="name" required data-validation-required-message="Veuillez saisir votre nom">
+                                <input type="text" class="form-control" placeholder="Nom" name="nom" id="name" required data-validation-required-message="Veuillez saisir votre nom">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label>Adresse e-mail</label>
-                                <input type="email" class="form-control" placeholder="Adresse e-mail" id="email" required data-validation-required-message="Veuillez saisir votre adresse e-mail">
+                                <input type="email" class="form-control" placeholder="Adresse e-mail" name="mail" id="email" required data-validation-required-message="Veuillez saisir votre adresse e-mail">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label>Mot de passe</label>
-                                <input type="password" class="form-control" placeholder="Mot de passe" id="password" required data-validation-required-message="Veuillez saisir un mot de passe.">
+                                <input type="password" class="form-control" placeholder="Mot de passe" id="password" name="password" required data-validation-required-message="Veuillez saisir un mot de passe.">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
