@@ -59,6 +59,9 @@ switch ($query) {
         break;
     case 'member_area':
         include 'controler/member_area.php';
+        break; 
+	case 'verif_projet':
+        include 'controler/verif_projet.php';
         break;
   // Fin de partie de TOM
     default:
