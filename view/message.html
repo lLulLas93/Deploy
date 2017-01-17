@@ -13,7 +13,7 @@
         echo 'alo';
        $id =  $_SESSION['id'];
      
-        $req = $pdo->prepare("SELECT Mail FROM utilisateurs WHERE ID_ut != :id");
+        $req = $pdo->prepare("SELECT Mail FROM UTILISATEURS WHERE ID_ut != :id");
        $req->execute(array("id" => $id));
         while($recup = $req->fetch()) {
             echo'<option>'.$recup['Mail'].'</option>';  

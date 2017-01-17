@@ -1,7 +1,5 @@
 <?php            
 
-include ('function.php');
-
 // Récupérer des donnees
 
 $a = date("Y-m-d");
@@ -28,7 +26,8 @@ for ($i = 0; $i < $total; $i++) {
 
         echo "<meta http-equiv='refresh' content='2; url=index.php?page=create_projet&projet' />";
 
-    } else {
+    } 
+}
       	
 	$rep_dest = "./modele/reception/";	
 	if(move_uploaded_file($_FILES['image']['tmp_name'],$rep_dest . $_FILES['image']['name'])){
@@ -40,6 +39,7 @@ for ($i = 0; $i < $total; $i++) {
 		
 
 	}else {
+        echo "<meta http-equiv='refresh' content='2; url=index.php?page=create_projet&projet' />";
 
 		print "PAS BON :( nb d'erreur ";
 		// print_r($_FILES['image']['error']);
@@ -47,7 +47,7 @@ for ($i = 0; $i < $total; $i++) {
 	}
 	//Recuperation de donnée
 	
-
+	
 	$statut = $_SESSION['Statut'];
 	$a = date("Y-m-d");
 	$nom_p = addslashes($_POST["projet_nom"]);
@@ -69,15 +69,12 @@ for ($i = 0; $i < $total; $i++) {
 	
 	$pdo->exec($insertion);
 	
-	$test = shell_exec('/code_fini/Creer/deploy_projet');
-	echo $test;
+	// $test = shell_exec('/code_fini/Creer/deploy_projet');
+	// echo $test;
 			echo 'Valeurs bien inserée';
 		    echo "<meta http-equiv='refresh' content='1; url=index.php?page=view_projet' />";
 	echo'<br/>';
 	echo'<br/></h4></div>';
-    }
-
-}
-
+   
 
 ?>

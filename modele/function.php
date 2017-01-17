@@ -5,7 +5,7 @@
 function register($firstname, $secondname, $email, $password, $statut, $pdo) {
     
     $sql = "INSERT INTO utilisateurs(Prenom, Nom_ut, Mail, Mdp, Statut) VALUES('$secondname','$firstname','$email', '$password','$statut')";
-    $req = $pdo->prepare("SELECT ID_ut FROM utilisateurs WHERE mail = :email");
+    $req = $pdo->prepare("SELECT ID_ut FROM UTILISATEURS WHERE mail = :email");
 
     $req->execute(array('email' => $email));
     $count = $req->rowCount();
@@ -26,8 +26,8 @@ function register($firstname, $secondname, $email, $password, $statut, $pdo) {
 
 function login($pdo) {
 
-    $reponse_pseudo = $pdo->query('SELECT Nom_ut FROM utilisateurs');
-    $reponse_password = $pdo->query('SELECT Mdp FROM utilisateurs');
+    $reponse_pseudo = $pdo->query('SELECT Nom_ut FROM UTILISATEURS');
+    $reponse_password = $pdo->query('SELECT Mdp FROM UTILISATEURS');
 
     //Je vérifie tout mes champs logins
     while ($donnees = $reponse_pseudo->fetch() AND $donees2 = $reponse_password->fetch()) {
@@ -38,7 +38,7 @@ function login($pdo) {
             $pseudo = $_POST['prenom'];
             $password = $_POST['password'];
 
-            $req = $pdo->prepare("SELECT ID_ut FROM utilisateurs WHERE Nom_ut = :pseudo AND Mdp = :password");
+            $req = $pdo->prepare("SELECT ID_ut FROM UTILISATEURS WHERE Nom_ut = :pseudo AND Mdp = :password");
             $req->execute(array('pseudo' => $pseudo, 'password' => $password));
 
             $contenu = $req->fetch();
@@ -49,7 +49,7 @@ function login($pdo) {
             
             //Enregistrement de L'adresse Mail dans la SESSION
 
-            $req_mail = $pdo->prepare("SELECT * FROM utilisateurs WHERE ID_ut = :id ");
+            $req_mail = $pdo->prepare("SELECT * FROM UTILISATEURS WHERE ID_ut = :id ");
             $req_mail->execute(array('id' => $id));
 
             $contenu = $req_mail->fetch();
@@ -64,7 +64,7 @@ function login($pdo) {
 
             //Enregistrement du statut dans la SESSION
 
-            $req_statut = $pdo->prepare("SELECT Statut FROM utilisateurs WHERE ID_ut = :id");
+            $req_statut = $pdo->prepare("SELECT Statut FROM UTILISATEURS WHERE ID_ut = :id");
             $req_statut->execute(array('id' => $id));
 
             $contenu_statut = $req_statut->fetch();

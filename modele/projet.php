@@ -57,7 +57,7 @@ for ($i = 0; $i < $total; $i++) {
 
         } else if ($n == "Instigateur" && (!$valeur || $valeur)) {
 
-            $nom_inst = $pdo->query("SELECT U.id_ut, U.Prenom, U.Nom_ut FROM utilisateurs U WHERE ID_ut=$valeur");
+            $nom_inst = $pdo->query("SELECT U.id_ut, U.Prenom, U.Nom_ut FROM UTILISATEURS U WHERE ID_ut=$valeur");
             $nom = $nom_inst->fetch();
             echo "<br/>".$n." (chef de projet) : ".$nom['Prenom']." ".$nom['Nom_ut'];
             $instigateur = $nom['id_ut'];
@@ -97,7 +97,7 @@ for ($i = 0; $i < $total; $i++) {
 						for ($a = 0; $a < $nb_num; $a++) {
 							$id_participant = $num[$a][0];
 							$id_projet = $num[$a][1];
-							$nom_inst = $pdo->query("SELECT Prenom,Nom_ut FROM utilisateurs WHERE ID_ut=$id_participant ");
+							$nom_inst = $pdo->query("SELECT Prenom,Nom_ut FROM UTILISATEURS WHERE ID_ut=$id_participant ");
 							$nom = $nom_inst->fetch();
 							echo $nom['Prenom']." ".$nom['Nom_ut'].",</br>";
 						}

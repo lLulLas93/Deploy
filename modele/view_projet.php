@@ -1,25 +1,14 @@
 <?php // Récupérer des donnees
-$s = 0;	
-
-echo'</br></br></br>';
 
 $id_ut = $_SESSION['id'];
 
-echo '<div class="STYLE-NAME">';
 
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
 $requete1 = $pdo->prepare("SELECT * FROM projets WHERE Participant = $id_ut || Instigateur = $id_ut");
-
 $requete1->execute();
-
 $resultat = $requete1->fetchall(PDO::FETCH_ASSOC);
-/*
-	echo'<pre>';
-	print_r($resultat);
-	echo'</pre>';
-	*/
 
+	
 $total = count($resultat);
 	/*
 	echo'<pre>';
@@ -32,6 +21,10 @@ $total = count($resultat);
 for ($i = 0; $i < $total; $i++) {
 	
     $a = $resultat[$i];
+echo'<pre>';
+	print_r($resultat);
+	echo'</pre>';
+	
 
     foreach($a as $n => $valeur) {
 		
@@ -40,8 +33,6 @@ for ($i = 0; $i < $total; $i++) {
             $id_projet = $valeur;
             echo "<h1><br/><br/>Projet N° ".$valeur."</h1>";
 			
-
-       
         } else if ($n == "Logo" && $valeur) {
 
             echo "<h5>".$n. " : &nbsp&nbsp&nbsp <img src='../programmation/modele/reception/$valeur' width='80' height='40'> </h5>";
@@ -53,11 +44,13 @@ for ($i = 0; $i < $total; $i++) {
 
         } else if ($n == "Instigateur" && (!$valeur || $valeur)) {
 
-            $nom_inst = $pdo->query("SELECT U.id_ut, U.Prenom, U.Nom_ut FROM utilisateurs U WHERE ID_ut=$valeur");
-            $nom = $nom_inst->fetch();
+            $nom_inst = $pdo->query("SELECT U.Prenom, U.Nom_ut FROM UTILISATEURS U WHERE ID_ut=$valeur");
+            $nom = $nom_inst->fetchall();
             echo "<br/>".$n." (chef de projet) : ".$nom['Prenom']." ".$nom['Nom_ut'];
-            $instigateur = $nom['id_ut'];
-
+            $instigateur = $valeur;
+	echo'<pre>';
+	print_r($nom_inst);
+	echo'</pre>';
 		} else if ($n == "Participant" && $valeur) {
           
 			$nb = 0;
@@ -93,7 +86,7 @@ for ($i = 0; $i < $total; $i++) {
 						for ($a = 0; $a < $nb_num; $a++) {
 							$id_participant = $num[$a][0];
 							$id_projet = $num[$a][1];
-							$nom_inst = $pdo->query("SELECT Prenom,Nom_ut FROM utilisateurs WHERE ID_ut=$id_participant ");
+							$nom_inst = $pdo->query("SELECT Prenom,Nom_ut FROM UTILISATEURS WHERE ID_ut=$id_participant ");
 							$nom = $nom_inst->fetch();
 							echo $nom['Prenom']." ".$nom['Nom_ut'].",</br>";
 						}
@@ -147,14 +140,7 @@ for ($i = 0; $i < $total; $i++) {
 								
 									";
 						}
-						if($results == 0){
-								echo "<form action='' method=POST>
-									</br>
-									<button class='btn btn-info btn-xs' name='ajouter'> S'ajouter</button>
-									<input type='hidden' name='id_projet' value='$id_projet'>
-									</form>";	
-										
-						}echo "<br/><br/><br/><br/><br/>";
+				echo "<br/><br/><br/><br/><br/>";
 
 } else {
 
@@ -178,38 +164,23 @@ if (isset($_POST['suprimer'])) {
     }
 }
 
-if (isset($_POST['ajouter'])) {
-	echo '<br>';
-	$id_projet = $_POST['id_projet'];
-	$id_ut_pr = $pdo->query("SELECT ID_ut FROM PARTICIPANTS_PR WHERE ID_projet=$id_projet");
-	$id_ut_pro = $id_ut_pr->fetch();
-	print_r($id_ut_pro);
-		if($id_ut != $id_ut_pro['ID_ut'] ){
+// if (isset($_POST['ajouter'])) {
+	// echo '<br>';
+	// $id_projet = $_POST['id_projet'];
+	// $id_ut_pr = $pdo->query("SELECT ID_ut FROM PARTICIPANTS_PR WHERE ID_projet=$id_projet");
+	// $id_ut_pro = $id_ut_pr->fetch();
+	// print_r($id_ut_pro);
+		// if($id_ut != $id_ut_pro['ID_ut'] ){
 			
-			$ajout = $pdo->prepare("INSERT INTO PARTICIPANTS_PR(ID_ut,ID_projet ) VALUES ('$id_ut','$id_projet')");
-			$ajout->execute();
-			echo'<META http-equiv="refresh" content="0.05;URL=index.php?page=projet_view">';
-		}else{
-			echo 'Vous participez déjà à ce projet';
+			// $ajout = $pdo->prepare("INSERT INTO PARTICIPANTS_PR(ID_ut,ID_projet ) VALUES ('$id_ut','$id_projet')");
+			// $ajout->execute();
+			// echo'<META http-equiv="refresh" content="0.05;URL=index.php?page=projet_view">';
+		// }else{
+			// echo 'Vous participez déjà à ce projet';
 		
 		
-		}						
-	}
-
-if (isset($_POST['vote'])) {
-	if ($_POST['vote'] == 0) {
-		$s++;
-		$id_projet = $_POST['id_projet'];
-		
-			echo' je suis entrer';
-			$modification2 = $pdo->prepare("UPDATE projets SET Vote = Vote+1 WHERE ID_projet = '$id_projet'");
-			$modification2->execute();
-			echo'<META http-equiv="refresh" content="0;URL=index.php?page=projet_view">';
-			$p = false;
-	}else{
-		echo'Vous avez déjà votez';
-	}
-}
+		// }						
+	// }
 	
 	
 if (isset($_POST['plus'])) {
