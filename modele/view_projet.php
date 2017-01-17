@@ -21,10 +21,7 @@ $total = count($resultat);
 for ($i = 0; $i < $total; $i++) {
 	
     $a = $resultat[$i];
-echo'<pre>';
-	print_r($resultat);
-	echo'</pre>';
-	
+
 
     foreach($a as $n => $valeur) {
 		
@@ -48,9 +45,7 @@ echo'<pre>';
             $nom = $nom_inst->fetchall();
             echo "<br/>".$n." (chef de projet) : ".$nom['Prenom']." ".$nom['Nom_ut'];
             $instigateur = $valeur;
-	echo'<pre>';
-	print_r($nom_inst);
-	echo'</pre>';
+
 		} else if ($n == "Participant" && $valeur) {
           
 			$nb = 0;

@@ -1,4 +1,4 @@
-<div id="page-wrapper">
+<div id="page-wrapper" align="center">
 
             <div class="container-fluid" style="margin-bottom:200px;margin-top:-20px">
 
@@ -18,27 +18,8 @@
 <input type ="text" name = "langage" id = "langage" placeholder="Php&Mysql,Html,Css,Python"/>
 			
 		</p>
-		<p>
-			<label for = "participants">Entrer le nombres de participants : </label>
-			<input type ="number" name = "participants" id = "participants" min="1" placeholder="5"/>
-			
-		</p>
-		
-		<p>
-			<label for = "difficultés">Entrer le niveau de difficultés : </label>
-			<input type ="range" id="myRange" onclick="rang()"  step="10" value="0" name = "difficultes" />
-			<span id = "aff_rang"></span>%
 
-		</p>
-<script>
-		
-function rang() {
-    var x = document.getElementById("myRange").value;
-    document.getElementById("aff_rang").innerHTML = x;
-}
-		</script>
 
-		
 <script>
 function m() {
 document.getElementById("d_f").value= document.getElementById("d_d").value;
@@ -58,7 +39,6 @@ document.getElementById("d_f").value= document.getElementById("d_d").value;
 			
 		</p>
 			<input type ="submit" value = "Envoyer"/>
-			<input type ="submit" onclick="imprimer()" value = "Imprimer"/>
 	</form>
 </body>
 
