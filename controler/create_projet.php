@@ -9,6 +9,7 @@
 include('./view/head.html');
 include('./view/nav.html');
 include('./view/view_projet.html');
+echo'<h1>vous avez 4 ou plus de 4 projet </h1>';
 include('./modele/view_projet.php');
 	}else if (isset($_GET['projet'])) {
 		

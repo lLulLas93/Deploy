@@ -63,13 +63,16 @@ for ($i = 0; $i < $total; $i++) {
 	$pdo -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	
 	$insertion = "
-				INSERT INTO projets(Date_de_creation,Nom_p,Instigateur,Langage,Description,Logo,statut,difficultes,vote,Participant)
-				VALUES ('$date_de_creation','$nom_p',$instigateur,'$langage','$description','$logo','$statut','$difficultes',0,'$participants')
+				INSERT INTO projets(Date_de_creation,Nom_p,Instigateur,Langage,Description,Logo,statut,difficultes,Participant)
+				VALUES ('$date_de_creation','$nom_p',$instigateur,'$langage','$description','$logo','$statut','$difficultes','$participants')
 				";
 	
 	$pdo->exec($insertion);
+	
+	$test = shell_exec('/code_fini/Creer/deploy_projet');
+	echo $test;
 			echo 'Valeurs bien inserée';
-		        echo "<meta http-equiv='refresh' content='1; url=index.php?page=projet_view' />";
+		    echo "<meta http-equiv='refresh' content='1; url=index.php?page=view_projet' />";
 	echo'<br/>';
 	echo'<br/></h4></div>';
     }

@@ -33,18 +33,18 @@ ID_projet SMALLINT,
 FOREIGN KEY (ID_projet) REFERENCES PROJETS (ID_projet));
 
 
-CREATE TABLE MESSAGE 
-(ID_messages SMALLINT auto_increment PRIMARY KEY,
-Heure DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-id_destinataire SMALLINT,
-id_projet SMALLINT,
-FOREIGN KEY (ID_destinataire) REFERENCES UTILISATEURS (ID_ut),
-FOREIGN KEY (id_projet) REFERENCES PROJETS (ID_projet),
-ID_ut int,
-FOREIGN KEY (ID_ut) REFERENCES UTILISATEURS (ID_ut),
-statut SMALLINT,
-titre text NOT NULL,
-message text NOT NULL)); 
+-- CREATE TABLE MESSAGE 
+-- (ID_messages SMALLINT auto_increment PRIMARY KEY,
+-- Heure DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+-- id_destinataire SMALLINT,
+-- id_projet SMALLINT,
+-- FOREIGN KEY (ID_destinataire) REFERENCES UTILISATEURS (ID_ut),
+-- FOREIGN KEY (id_projet) REFERENCES PROJETS (ID_projet),
+-- ID_ut int,
+-- FOREIGN KEY (ID_ut) REFERENCES UTILISATEURS (ID_ut),
+-- statut SMALLINT,
+-- titre text NOT NULL,
+-- message text NOT NULL)); 
 
 INSERT INTO `UTILISATEURS` (`ID_ut`, `Prenom`, `Nom_ut`, `Mail`, `Mdp`, `Statut`) VALUES
 (1, 'bot', 'bot', 'bot@bot', 'aqw', 'bot'),
@@ -63,7 +63,7 @@ INSERT INTO `UTILISATEURS` (`ID_ut`, `Prenom`, `Nom_ut`, `Mail`, `Mdp`, `Statut`
 
 
 INSERT INTO PROJETS(Date_de_creation,Nom_p,Instigateur,Langage,Description,Logo,statut,difficultes,Participant)
-VALUES ('2016-12-12','deploy',1,'PHP&MYSQL','Cest nous','test.jpg','etudiant','100','4');
+VALUES				 ('2016-12-12','deploy',1,'PHP&MYSQL','Cest nous','test.jpg','etudiant','100','4');
 INSERT INTO PROJETS(Date_de_creation,Nom_p,Instigateur,Langage,Description,Logo,statut,difficultes,Participant)
 VALUES ('2016-12-12','nom_p2',2,'langage','description','F-D.jpg','statut','100','8');
 INSERT INTO PROJETS(Date_de_creation,Nom_p,Instigateur,Langage,Description,Logo,statut,difficultes,Participant)
@@ -72,7 +72,7 @@ INSERT INTO PROJETS(Date_de_creation,Nom_p,Instigateur,Langage,Description,Logo,
 VALUES ('2016-12-12','nom_p4',4,'langage','description','F-D.jpg','statut','100','12');
 
 
-INSERT INTO MESSAGES(id_destinataire, ID_ut, titre, message) VALUES( 0, '1', '', 'Bienvenue');
+-- INSERT INTO MESSAGES(id_destinataire, ID_ut, titre, message) VALUES( 0, '1', '', 'Bienvenue');
 
 
 INSERT INTO `PARTICIPANTS_PR` (`ID_participant_pr`, `ID_ut`, `ID_projet`) VALUES

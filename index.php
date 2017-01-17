@@ -4,7 +4,7 @@ session_start();
 // Connexion a la base de donnée, Check connection
 
 try {
-    $pdo = new PDO('mysql:host=localhost;dbname=deploy', 'root', 'toor');
+    $pdo = new PDO('mysql:host=localhost;dbname=DeployDev', 'root', 'deployitdbinside');
     $pdo->exec('SET NAMES utf8');
 } catch (PDOException $e) {
     print "Erreur !: ".$e->getMessage()."<br/>";
