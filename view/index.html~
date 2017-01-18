@@ -194,7 +194,7 @@
                 <div class="col-lg-8 col-lg-offset-2">
                     <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
                     <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
-                    <form name="inscription" id="contactForm" enctype="multipart/form-data" action="/controler/inscription.php" method="post" novalidate>
+                    <form name="inscription" id="contactForm" enctype="multipart/form-data" action="/controler/test.php" method="post" novalidate>
 						<div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label>Prénom</label>
@@ -510,7 +510,7 @@
 				    		<div id="div-login-msg">
                                 <span id="text-login-msg">Entrez votre prenom </span>
                             </div>
-				    		<input id="login_username" name="login" class="form-control" type="text" placeholder="Prenom" /required>
+				    		<input id="login_username" name="prenom"class="form-control" type="text" placeholder="Prenom" /required>
 							<span id="text-login-msg">Entrez votre mot de passe</span>
 							<input id="login_password" name="password" class="form-control" type="password" placeholder="Password" /required>
                             <!--div class="checkbox">

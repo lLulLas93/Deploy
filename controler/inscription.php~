@@ -1,5 +1,5 @@
 <?php
-/*
+
 if (empty($_POST['firstname']) || (trim($_POST['firstname'])) == '' || empty($_POST['secondname']) || (trim($_POST['secondname'])) == '' || empty($_POST['email']) || (trim($_POST['email'])) == '' || empty($_POST['password']) || (trim($_POST['password'])) == '' || empty($_POST['repassword']) || (trim($_POST['repassword'])) == '' || empty($_POST['statut']) || (trim($_POST['statut'])) == '' || empty($_POST['noti']) || (trim($_POST['statut'])) == '') {
 
     include('./view/inscription.html');
@@ -34,6 +34,4 @@ if (empty($_POST['firstname']) || (trim($_POST['firstname'])) == '' || empty($_P
         echo '<div class="alert alert-danger" role="danger">Erreur</div>';
     }
 }
-*/?>
-
-
+?>

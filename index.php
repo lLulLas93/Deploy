@@ -4,7 +4,7 @@ session_start();
 // Connexion a la base de donnée, Check connection
 
 try {
-    $pdo = new PDO('mysql:host=localhost;dbname=DeployDev', 'root', 'toor');
+    $pdo = new PDO('mysql:host=localhost;dbname=DeployDev', 'root', 'deployitdbinside');
     $pdo->exec('SET NAMES utf8');
 } catch (PDOException $e) {
     print "Erreur !: ".$e->getMessage()."<br/>";
@@ -42,8 +42,8 @@ switch ($query) {
 	case 'deploy_projet':
         include 'controler/deploy_projet.php';
 		break;	
-	case 'ddeploy_projet':
-        include 'controler/ddeploy_projet.php';
+	case 'deployed_projet':
+        include 'controler/deployed_projet.php';
 		break;
 	case 'create_projet':
         include 'controler/create_projet.php';

@@ -3,31 +3,30 @@
 include('./view/head.html');
 include('./view/nav.html');
 include('./view/accueil.html');
+include('./modele/tab.php');
 echo"  <div class='row'>
 				
 					<div class='col-lg-12'>
                         <div class='panel panel-default'>
                             <div class='panel-heading' align='center'>
-                                <h3 class='panel-title'><i class='fa fa-fw fa-table' ></i> Statistique</h3>
+                                <h3 class='panel-title'><i class='fa fa-fw fa-table' ></i> Statistiques</h3>
                             </div>
                             <div class='panel-body'>
                                 <div class='table-responsive'>
                                     <table class='table table-bordered table-hover table-striped'>
                               
- <thead>
+					<thead align='center'>
                                             <tr>
-                                                <th>Utilisateurs Inscrit</th>
-                                                <th>Projet existant </th>
-                                                <th>Projets auquelle vous appartenez</th>
-                                                <th>Site Déployer</th>
+                                                <th>Utilisateurs inscrits</th>
+                                                <th>Projets existants</th>
+                                                <th>Sites Déployés</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
+                                        <tbody align='center'>
                                             <tr>
-                                                <td>Deploy.Dev</td>
-                                                <td>(description)</td>
-                                                <td>Tirnan, Clou, Kayumba, de C-T(loose)</td>
-                                                <td>(Déployer, Redéployer, Supprimer)</td>
+                                                <td>".$c[C]."</td>
+                                                <td>".$c2[C2]."</td>
+                                                <td>".$c3[C3]."</td>
                                             </tr>
                                      
                                         </tbody>

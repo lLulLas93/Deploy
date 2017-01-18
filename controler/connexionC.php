@@ -7,18 +7,14 @@
 	//Appel function LOGIN
 
 	login($pdo);
-
-    if (isset($connexion)) {
+echo 'Connexion : '.$connexion;
+   if (isset($connexion)) {
         if ($connexion) {
            // echo $statut;
            // echo $_SESSION['statut'];
             include('./view/head.html');
             include('./controler/accueil.php');
            // include('./view/footer.html');
-        }
-    } else {
-        if (!isset($connexionA)) {
-			include('./view/index.html');
         }
     }
     // Connexion en tant qu'Admin

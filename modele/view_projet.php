@@ -1,25 +1,23 @@
 <?php // Récupérer des donnees
 
+	echo'ieiei
+'.$id_ut.' <-';
 $id_ut = $_SESSION['id'];
 
-
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-$requete1 = $pdo->prepare("SELECT * FROM projets WHERE Participant = $id_ut || Instigateur = $id_ut");
+$requete1 = $pdo->prepare("SELECT * FROM PROJETS P INNER JOIN STATUT S  WHERE S.ID_ut = $id_ut");
 $requete1->execute();
 $resultat = $requete1->fetchall(PDO::FETCH_ASSOC);
 
-	
 $total = count($resultat);
-	/*
-	echo'<pre>';
-	print_r($num);
+	
 	echo'</pre>';
-	*/
+	print_r($num);
+	echo'<pre>';
 
 
-	
 for ($i = 0; $i < $total; $i++) {
-	
+
     $a = $resultat[$i];
 
 
@@ -29,7 +27,7 @@ for ($i = 0; $i < $total; $i++) {
 
             $id_projet = $valeur;
             echo "<h1><br/><br/>Projet N° ".$valeur."</h1>";
-			
+
         } else if ($n == "Logo" && $valeur) {
 
             echo "<h5>".$n. " : &nbsp&nbsp&nbsp <img src='../programmation/modele/reception/$valeur' width='80' height='40'> </h5>";

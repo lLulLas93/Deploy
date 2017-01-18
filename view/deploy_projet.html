@@ -1,66 +1,80 @@
-<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-    	<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header" align="center">
-					<img id="img_logo" src="design/LOGO-OFFICIEL-2.png" style="width:300px;height:250px">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-					</button>
-				</div>
-                
-                <!-- Begin # DIV Form -->
-                <div id="div-forms">
-                
-                    <!-- Begin # Login Form -->
-                    <form id="login-form">
-		                <div class="modal-body">
-				    		<div id="div-login-msg">
-                                <span id="text-login-msg">Entrez votre pseudo ou votre adresse mail de Deploy.Dev et votre mot de passe</span>
+<div class='row'>
+				
+					<div class='col-lg-12'>
+                        <div class='panel panel-default'>
+                            <div class='panel-heading' align='center'>
+                                <h1 class='panel-title'><i class='fa fa-fw fa-table' ></i><font size=5>Mon Projet</font></h1>
                             </div>
-				    		<input id="login_username" class="form-control" type="text" placeholder="Pseudo / Adresse mail Deploy.Dev" /required>
-				    		<input id="login_password" class="form-control" type="password" placeholder="Password" /required>
-                            <!--div class="checkbox">
-                                <label>
-                                    <input type="checkbox"> Se souvenir
-                                </label>
-                            </div-->
-        		    	</div>
-				        <div class="modal-footer">
-                            <div>
-                                <button type="submit" class="btn btn-primary btn-lg btn-block">Connexion</button>
+                            <div class='panel-body'>
+                                <div class='table-responsive'>
+                                    <table class='table table-bordered table-hover table-striped'i align="center">                         
+Entrez votre fqdn :
+<p>
+<form action="index.php?page=deploy_projet" method="POST">
+<input type="text" name="choix_fqdn" value="">
+<input type="submit" name=conf_query value="Confirmer">
+</form>
+</b>
+<hr>
+<hr>
+ <thead>
+                                            <tr>
+                                                <th><h3> Projet Participant</h3></th>
+                                                <th><p>language</p></th>
+                                                <th>description</th>
+                                                <th><p>logo</p></th>
+                                                <th><p>participant</p></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+						<th><h3>Projet Participant</h3></th>
+                                                <td><p>language</p></td>
+                                                <td>description</td>
+                                                <td>logo</td>
+                                                <td><p>participant</p></td>
+                                            </tr>
+                                     
+                                        </tbody>
+ <thead>
+                                            <tr>
+                                                <th><h3> Projet Participant</h3></th>
+                                                <th><p>language</p></th>
+                                                <th>description</th>
+                                                <th><p>logo</p></th>
+                                                <th><p>participant</p></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+						<th><h3>Projet Participant</h3></th>
+                                                <td><p>language</p></td>
+                                                <td>description</td>
+                                                <td>logo</td>
+                                                <td><p>participant</p></td>
+                                            </tr>
+                                     
+                                        </tbody>
+                                    </table>            
+                                </div>
                             </div>
-				    	    <!--div>
-                                <button id="login_lost_btn" type="button" class="btn btn-link">Mot de passe oublié ?</button>
-                            </div-->
-				        </div>
-                    </form>
-                    <!-- End # Login Form -->
-                    
-                    <!-- Begin | Lost Password Form -->
-                    <form id="lost-form" style="display:none;">
-    	    		    <div class="modal-body">
-		    				<div id="div-lost-msg">
-                                <span id="text-lost-msg">Entrez votre adresse e-mail.</span>
-                            </div>
-		    				<input id="lost_email" class="form-control" type="text" placeholder="Adresse e-mail" /required>
-            			</div>
-		    		    <div class="modal-footer">
-                            <div>
-                                <button type="submit" class="btn btn-primary btn-lg btn-block">Envoyer</button>
-                            </div>
-                            <div>
-                                <button id="lost_login_btn" type="button" class="btn btn-link">Connexion</button>
-                            </div>
-		    		    </div>
-                    </form>
-                    <!-- End | Lost Password Form -->
-                    
+                        </div>
+                    </div>
+					
                 </div>
-                <!-- End # DIV Form -->
-                
-			</div>
-		</div>
-		
-	<script src="design/Connexion/connexion.js"></script>
-	
-</div>
+                <!-- /.row -->
+
+            </div>
+
+   </div>
+   
+    <!-- jQuery -->
+    <script src="design/Thème/startbootstrap-sb-admin-gh-pages/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="design/Thème/startbootstrap-sb-admin-gh-pages/js/bootstrap.min.js"></script>
+
+    <!-- Morris Charts JavaScript -->
+    <script src="design/Thème/startbootstrap-sb-admin-gh-pages/js/plugins/morris/raphael.min.js"></script>
+    <script src="design/Thème/startbootstrap-sb-admin-gh-pages/js/plugins/morris/morris.min.js"></script>
+    <script src="design/Thème/startbootstrap-sb-admin-gh-pages/js/plugins/morris/morris-data.js"></script>
