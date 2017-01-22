@@ -1,0 +1,14 @@
+#!/bin/bash
+
+
+existe=`grep -E ^C$1.deploy.itinet.fr:www.deploy.itinet.fr:86400$ data`
+
+if [ -z $existe ]
+then
+
+    echo -e "jamais declare "    
+    echo -e "\n $existe \n"
+else
+    echo -e "\n deja declarer  \n"    
+    echo -e "\n $existe \n"    
+fi

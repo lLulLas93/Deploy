@@ -1,0 +1,67 @@
+<div id="page-wrapper" align="center">
+
+            <div class="container-fluid" style="margin-bottom:200px;margin-top:-20px">
+
+               <body>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+</br>	
+<form enctype="multipart/form-data"  action = "index.php?page=verif_projet" class="STYLE-NAME" method = "POST">
+		<div align="center"><h1> Création Projet </h1>	<br/><br/><br/></div>	
+		<p>
+			<label for = "projet_nom">Entrer le nom de votre Projet : </label>
+			<input type ="text" name = "projet_nom" id = "projet_nom" placeholder='Chiilii'/>
+		</p>
+		<p>
+			<label for ="mdp"> Entrer le mot de passe du cloud : </label>
+			<input type="password" name="mdp" id="mdp"/>
+		</p>		
+		<p>
+		<b>	Voulez-vous une base de données ? </b>
+			<p>
+			Oui
+			<input type="checkbox" name"y" id="y" value="Oui">
+			Non
+			<input type="checkbox" name"n" id="n" value="Non">
+			</p>
+		</p>
+		<p>
+			<label for = "langage">Entrer le(s) langage(s) : </label>
+<input type ="text" name = "langage" id = "langage" placeholder="Php&Mysql,Html,Css,Python"/>
+			
+		</p>
+
+
+<script>
+function m() {
+document.getElementById("d_f").value= document.getElementById("d_d").value;
+
+}
+</script>
+		<p>
+					<label for = "img">Entrer une image pour votre projet : </label>
+					<input type ="hidden" name = "MAX_FILE_SIZE" value="10000000"/>
+					<input type ="file" name = "image"/>
+		
+		</p>
+		
+		<p>
+			<label for = "description">Entrer une description  votre projet : </label>
+			<textarea name = "description" rows="10" cols="50" placeholder="Valoriser votre projet.."/></textarea>
+			
+		</p>
+			<input type ="submit" value = "Envoyer"/>
+	</form>
+</body>
+
+
+    <!-- jQuery -->
+    <script src="design/Thème/startbootstrap-sb-admin-gh-pages/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="design/Thème/startbootstrap-sb-admin-gh-pages/js/bootstrap.min.js"></script>
+
+    <!-- Morris Charts JavaScript -->
+    <script src="design/Thème/startbootstrap-sb-admin-gh-pages/js/plugins/morris/raphael.min.js"></script>
+    <script src="design/Thème/startbootstrap-sb-admin-gh-pages/js/plugins/morris/morris.min.js"></script>
+    <script src="design/Thème/startbootstrap-sb-admin-gh-pages/js/plugins/morris/morris-data.js"></script>
