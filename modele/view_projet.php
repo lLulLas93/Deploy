@@ -24,10 +24,6 @@ $id_projet_participant = $requete1->fetchall(PDO::FETCH_ASSOC);
 	
 if(!$id_projet_chef && !$nb_pr_participant){
 	
-	echo'vous avez pas de projet en tant que id_projet_chef de projet ';
-	echo'vous avez pas de projet en tant que participants   ';
-	echo'Créer votre premiers projet ici ';
-	
 	
     echo'<form enctype="multipart/form-data" action="index.php?page=create_projet" method="post">
 <div class="row">
@@ -46,6 +42,11 @@ if(!$id_projet_chef && !$nb_pr_participant){
 echo'<form action="index.php?page=deploy_projet" method="POST">
                             <div class="form-group col-xs-4">
                                 <center><button type="submit" class="btn btn-primary btn-lg btn-block" >Deploiement </button></center></div>
+</form>';
+
+echo'<form action="index.php?page=supp_projet" method="POST">
+                            <div class="form-group col-xs-4">
+                                <center><button type="submit" class="btn btn-primary btn-lg btn-block" >Supprimer mon projet</button></center></div>
 </form>';
 
 		//Affiche projet dont on n'est chef
@@ -217,7 +218,6 @@ echo '<pre> ';
 }else if ($nb_pr_participant && $id_projet_chef){
 	
 
-	
 	//Affiche projet dont on n'est les chef et participant 2
 		
 $ipc = $id_projet_chef['projet_id'];	     
@@ -227,10 +227,17 @@ $projet = $projet->fetchall(PDO::FETCH_ASSOC);
 	echo'<pre><pre>';
 	 $a = $projet[0];
 
+echo'<form action="index.php?page=add_member" method="POST">
+                            <div class="form-group col-xs-4">
+                                <center><button type="submit" class="btn btn-primary btn-lg btn-block" >Ajouter un membre </button></center></div>
+</form>';
+
+	
 echo'<form action="index.php?page=deploy_projet" method="POST">
                             <div class="form-group col-xs-4">
                                 <center><button type="submit" class="btn btn-primary btn-lg btn-block" >Deploiement </button></center></div>
 </form>';
+
     foreach($a as $n => $valeur) {
 		
 		 if ($n == "projet_id" && (!$valeur || $valeur)) {

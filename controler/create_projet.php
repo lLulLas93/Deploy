@@ -1,9 +1,9 @@
 <?php
 		$id = $_SESSION['id'];
 		
-			$count = $pdo->query("SELECT count(*) AS nb FROM STATUT WHERE statut = $id");
+			$count = $pdo->query("SELECT statut AS nb FROM STATUT WHERE user_id = $id");
 			$total = $count->fetch();
-	
+	print_r($total);
 	if($total['nb'] >= 4) {
 		
 include('./view/head.html');

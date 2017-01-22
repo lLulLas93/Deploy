@@ -5,7 +5,7 @@ include( './view/nav.html' );
 
 
 
-if (empty($_POST['projet_nom']) || empty($_POST['langage']) || empty($_POST['participants']) || empty($_POST['description']) || empty($_POST['difficultes'])){
+if (empty($_POST['projet_nom']) || empty($_POST['langage']) || empty($_POST['description']) || empty($_POST['mdp'])){
     include( './view/create_projet.html' );
 }
 else{

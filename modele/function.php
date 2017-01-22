@@ -14,7 +14,7 @@ function register($login, $nom, $password, $pdo) {
         global $doublon;
         $doublon = true;
 	} else if (!$count) {
-		echo exec('./code_fini/Creer/create_utilisateur.sh $nom $password');
+	echo exec("./code_fini/Creer/create_utilisateur.sh $nom $password");
        		if ($pdo->query($sql) == TRUE) {
        		global $inscription;
        		$inscription = true;
