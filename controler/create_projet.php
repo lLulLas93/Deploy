@@ -1,6 +1,6 @@
 <?php
 		$id = $_SESSION['id'];
-		
+echo "<br/><br/<br/><br/>>".$i;		
 			$count = $pdo->query("SELECT statut AS nb FROM STATUT WHERE user_id = $id");
 			$total = $count->fetch();
 	print_r($total);

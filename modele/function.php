@@ -6,7 +6,7 @@ function register($login, $nom, $password, $pdo) {
 	
 	$mail = "$nom@deploy.itinet.fr";
     $sql = "INSERT INTO UTILISATEURS(nom, login, mail, mdp) VALUES('$nom','$login','$mail', '$password')";
-    $req = $pdo->prepare("SELECT * FROM UTILISATEURS WHERE mail = '$mail' || nom = '$nom' ");
+    $req = $pdo->prepare("SELECT * FROM UTILISATEURS WHERE login = '$login' || nom = '$nom' ");
     $t = $req->execute();
     $count = $req->rowCount();
     

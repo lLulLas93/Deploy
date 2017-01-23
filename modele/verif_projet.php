@@ -25,7 +25,10 @@ for ($i = 0; $i < $total; $i++) {
         echo "<meta http-equiv='refresh' content='2; url=index.php?page=create_projet&projet' />";
     } 
 }
-	$projet = $i;
+		$num_inst = $pdo->query("SELECT login FROM UTILISATEURS WHERE user_id=$instigateur");
+                $id = $num_inst->fetch();
+                $user = $id['login'];
+		$projet = $i;
 
 	$rep_dest = "./modele/reception/";	
 	if(move_uploaded_file($_FILES['image']['tmp_name'],$rep_dest . $_FILES['image']['name'])){
@@ -42,13 +45,13 @@ for ($i = 0; $i < $total; $i++) {
 				VALUES ('$date_de_creation','$nom_p',1,1,'$langage','$description','$logo')";
 
 	$insertion2 = "
-				INSERT INTO statut(Deploy,projet_id,statut,user_id)
+				INSERT INTO STATUT(Deploy,projet_id,statut,user_id)
 				VALUES (0,'$projet',1,'$instigateur')";
 
-	echo exec("./code_fini/Creer/create_projet.sh $nom_p $mdp $user");
+	echo exec("./code_fini/Creer/create_project.sh $nom_p $mdp $user");
 	
-	//$pdo->exec($insertion);
-	//$pdo->exec($insertion2);
+$pdo->exec($insertion);
+$pdo->exec($insertion2);
 			echo 'Valeurs bien inserée';
 		    echo "<meta http-equiv='refresh' content='1; url=index.php?page=view_projet' />";
 	echo'<br/>';

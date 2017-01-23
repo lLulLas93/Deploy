@@ -39,28 +39,26 @@ if(!$id_projet_chef && !$nb_pr_participant){
 	
 }else if (!$nb_pr_participant && $id_projet_chef){
 
-echo'<form action="index.php?page=deploy_projet" method="POST">
-                            <div class="form-group col-xs-4">
-                                <center><button type="submit" class="btn btn-primary btn-lg btn-block" >Deploiement </button></center></div>
-</form>';
-
-echo'<form action="index.php?page=supp_projet" method="POST">
-                            <div class="form-group col-xs-4">
-                                <center><button type="submit" class="btn btn-primary btn-lg btn-block" >Supprimer mon projet</button></center></div>
-</form>';
-
-		//Affiche projet dont on n'est chef
 		
+		//Affiche projet dont on n'est chef
+
 $ipc = $id_projet_chef['projet_id'];	     
 $projet = $pdo->prepare("SELECT * FROM PROJETS WHERE projet_id = $ipc");
 $projet->execute();
 $projet = $projet->fetchall(PDO::FETCH_ASSOC);
-	echo'<pre><pre>';
 	 $a = $projet[0];
-    
-echo'<form action="index.php?page=deploy_projet" method="POST">
-<input type="submit" name="deploy" value="Déploiement">
+
+echo'<pre><pre><form action="index.php?page=deploy_projet" method="POST">
+                            <div class="form-group col-xs-4">
+                                <center><button type="submit" class="btn btn-primary btn-lg btn-block" >Deploiement </button>>
 </form>';
+
+
+echo'<form action="index.php?page=supp_projet" method="POST">
+      <button type="submit" class="btn btn-primary btn-lg btn-block" >Supprimer mon projet</button></form>';
+    
+echo'<form action="index.php?page=add_member" method="POST">
+      <button type="submit" class="btn btn-primary btn-lg btn-block" >Ajouter un membre</button></center></form>';
 
 foreach($a as $n => $valeur) {
 		

@@ -32,11 +32,11 @@ FIN
 	
 	if (test -e $1)
 	then
-sudo sh -c'	echo "Le projet existe déjà"'
+sudo sh -c '	echo "Le projet existe déjà"'
 	else 
 sudo		mkdir /var/deploy/gits/$1
 sudo		git --bare init /var/deploy/gits/$1
-sudo sh -c'	echo " bon"'
+sudo sh -c '	echo " bon"'
 sudo		mkdir /home/$1/.ssh
 sudo		touch /home/$1/.ssh/authorized_keys
 		echo "#$3@deploy.itinet.fr" | sudo tee /home/$1/.ssh/authorized_keys
@@ -48,12 +48,13 @@ sudo		edquota -p $1 quota
 	fi
 
 	#Création utilisateur owncloud projet	
-sudo	curl -d userid=manga -d password=tutu http://deploy:deployit@owncloud.deploy.itinet.fr/ocs/v1.php/cloud/users
+sudo	curl -d userid=$1 -d password=$2 http://deploy:deployit@owncloud.deploy.itinet.fr/ocs/v1.php/cloud/users
 
 	#Création group owncloud projet
-	echo "INSERT INTO owncloud.oc_groups (gid) values ('$1');" | mysql -u root -p<<t
-	deployitdbinside
-t
+
+mysql -D "owncloud" -h "localhost" -u "root" "-pdeployitdbinside" -e "INSERT INTO owncloud.oc_groups (gid) values ('$1')"
+
+
 sudo	mkdir /var/cloud/$1
 
 	#Ajout du chef de projet
@@ -71,9 +72,8 @@ sudo	touch /home/$1
 	"
 
 	#Ajout au projet sa base de donnée
-	echo "CREATE USER '$1'@'localhost' IDENTIFIED BY '$2'" | mysql -u root -p<<t
-	deployitdbinside
-t
+
+mysql -h "localhost" -u "root" "-pdeployitdbinside" -D "mysql" -e "CREATE USER '$1'@'localhost' IDENTIFIED BY '$2'" 
 
 }
 #creation de l'alias
@@ -86,4 +86,4 @@ sudo postmap /etc/postfix/alias
 }
 create_alias $1 $2 $3
 create_project $1 $2 $3
-usermod $3 -aG $1
+sudo usermod $3 -aG $1
