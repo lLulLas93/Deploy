@@ -1,0 +1,18 @@
+<div id="page-wrapper">    
+	<div class="container-fluid" style="margin-bottom:200px;margin-top:-20px">
+
+                <!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header" align="center">
+<form enctype="multipart/form-data"  action = "index.php?page=supp_membre" class="STYLE-NAME" method = "POST">
+
+		<p>
+			<label for = "prenom">Entrer le nom de l'utilisateur : </label>
+			<input type ="text" name = "user"/>
+			<input type ="hidden" name = "n_projet" value="<?php echo $n_p ?>"/>
+			<input type ="hidden" name = "id_projet" value="<?php echo $id_p ?>"/>
+		</p>
+		
+		<input type ="submit" value = "Envoyer"/>		
+	</form>

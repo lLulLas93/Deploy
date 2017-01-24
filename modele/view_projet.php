@@ -15,13 +15,15 @@ $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $requete1 = $pdo->prepare("SELECT projet_id FROM STATUT S  WHERE S.user_id = $user_id and S.statut = 1");
 $requete1->execute();
 $id_projet_chef = $requete1->fetch(PDO::FETCH_ASSOC);
-print_r($id_projet_chef);
+
+//print_r($id_projet_chef);
 
 $requete1 = $pdo->prepare("SELECT projet_id FROM STATUT S  WHERE S.user_id = $user_id and S.statut = 0");
 $requete1->execute();
 $id_projet_participant = $requete1->fetchall(PDO::FETCH_ASSOC);
 	$nb_pr_participant = count($id_projet_participant);
-print_r($id_projet_participant);
+
+//print_r($id_projet_participant);
 
 	
 if(!$id_projet_chef && !$nb_pr_participant){
@@ -62,10 +64,14 @@ echo '<pre><pre>
 
 <form action="index.php?page=deploy_projet" method="POST">
      <button type="submit" class="btn btn-primary btn-lg btn-block" >Deploiement </button>
+	  <input type="hidden" name="n_projet" value="'.$nom_projet.'">
+	  <input type="hidden" name="id_projet" value="'.$id_projet.'">
 </form>
 
 <form action="index.php?page=supp_projet" method="POST">
      <button type="submit" class="btn btn-primary btn-lg btn-block" >Supprimer mon projet </button>
+	  <input type="hidden" name="n_projet" value="'.$nom_projet.'">
+	  <input type="hidden" name="id_projet" value="'.$id_projet.'">
 </form>';
 
 foreach($a as $n => $valeur) {
@@ -235,6 +241,7 @@ $projet = $projet->fetchall(PDO::FETCH_ASSOC);
 	$nom_projet = $projet[0]['nom_projet'];
 	
 echo '<pre><pre>
+<div>
 
 <form action="index.php?page=ajout_membre" method="POST">
       <button type="submit" class="btn btn-primary btn-lg btn-block" >Ajouter un membre</button>
@@ -242,13 +249,24 @@ echo '<pre><pre>
 	  <input type="hidden" name="id_projet" value="'.$id_projet.'">
 </form>
 
+<form action="index.php?page=supp_membre" method="POST">
+      <button type="submit" class="btn btn-primary btn-lg btn-block" >Supprimer un membre</button>
+	  <input type="hidden" name="n_projet" value="'.$nom_projet.'">
+	  <input type="hidden" name="id_projet" value="'.$id_projet.'">
+</form>
+
 <form action="index.php?page=deploy_projet" method="POST">
+	  <input type="hidden" name="n_projet" value="'.$nom_projet.'">
+	  <input type="hidden" name="id_projet" value="'.$id_projet.'">
      <button type="submit" class="btn btn-primary btn-lg btn-block" >Deploiement </button>
 </form>
 
 <form action="index.php?page=supp_projet" method="POST">
+	  <input type="hidden" name="n_projet" value="'.$nom_projet.'">
+	  <input type="hidden" name="id_projet" value="'.$id_projet.'">
      <button type="submit" class="btn btn-primary btn-lg btn-block" >Supprimer mon projet </button>
-</form>';
+</form>
+</div>';
 
     foreach($a as $n => $valeur) {
 		
@@ -310,7 +328,7 @@ echo '<pre><pre>
 for ($i = 0; $i < $nb_pr_participant; $i++) {	
 	
 $a = $id_projet_participant[$i]['projet_id'];
- print_r($id_projet_participant);
+ //print_r($id_projet_participant);
 
 $requete1 = $pdo->prepare("SELECT * FROM PROJETS WHERE projet_id = $a");
 $requete1->execute();
