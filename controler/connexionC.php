@@ -7,7 +7,6 @@
 	//Appel function LOGIN
 
 	login($pdo);
-echo 'Connexion : '.$connexion;
    if (isset($connexion)) {
         if ($connexion) {
            // echo $statut;
@@ -16,7 +15,9 @@ echo 'Connexion : '.$connexion;
             include('./controler/accueil.php');
 	   // include('./view/end.html');
         }
-    }
+    }else{
+    echo '<meta http-equiv="refresh" content="2; URL=index.php">';
+}
     // Connexion en tant qu'Admin
     if (isset($connexionA)) {
         if ($connexionA) {

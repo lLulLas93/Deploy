@@ -5,8 +5,8 @@
 function register($login, $nom, $password, $pdo) {
 	
 	$mail = "$nom@deploy.itinet.fr";
-    $sql = "INSERT INTO UTILISATEURS(nom, login, mail, mdp) VALUES('$nom','$login','$mail', '$password')";
-    $req = $pdo->prepare("SELECT * FROM UTILISATEURS WHERE login = '$login' || nom = '$nom' ");
+    $sql = "INSERT INTO UTILISATEURS(prenom, login, mail, mdp) VALUES('$nom','$login','$mail', '$password')";
+    $req = $pdo->prepare("SELECT * FROM UTILISATEURS WHERE login = '$login' || prenom = '$nom' ");
     $t = $req->execute();
     $count = $req->rowCount();
     
@@ -46,9 +46,8 @@ function login($pdo) {
             $contenu = $req->fetch();
             $_SESSION['id'] = $contenu['user_id'];
             $_SESSION['mail'] = $contenu['Mail'];
-            $_SESSION['nom'] = $contenu['nom'];
+            $_SESSION['prenom'] = $contenu['prenom'];
             $_SESSION['login'] = $contenu['login'];
-            $_SESSION['Statut'] = $contenu['Statut'];
 
             global $id;
             $id = $_SESSION['id'];

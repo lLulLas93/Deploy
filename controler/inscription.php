@@ -28,6 +28,7 @@ $password = $_POST['password'];
 $repassword = $_POST['repassword'];
 
 //Appel de la fonction register
+
 $_SESSION['login'] = $login;
 $_SESSION['nom'] = $nom;
 $_SESSION['password'] = $password;
@@ -51,7 +52,7 @@ register($login, $nom, $password, $pdo);
             echo 'Erreur sur doublon';
         }
     } else {
-        echo '<br/><br/> <br/> <br/> <div class="alert alert-danger" role="danger">Erreur</div>';
+        echo '<br/><br/> <br/> <br/> <div class="alert alert-danger" role="danger">Erreureiie</div>';
 		echo '<div class="alert alert-danger" role="danger" style="margin-top:100px"><center><font size=5>Compte deja existant</font></center></div>';
     }
 }

@@ -33,33 +33,25 @@ deploy BOOLEAN
 );
 
 INSERT INTO `UTILISATEURS` (`user_id`, `Prenom`, `Login`, `Mail`, `Mdp`) VALUES
-(1, 'bot', 'bot', 'bot@bot', 'aqw'),
-(2, 'azertyuiop', 'azertyuiop', 'aze@poiu', 'azertyuiop'),
-(3, 'qsdfghjklvbn', 'wxcvbn', 'aze@poiu', 'wxcvbn'),
-(5, 'aqw', 'aqw', 'aqw@wqa', 'aqw'),
-(6, 'efcxse', 'Admin', 'vprigaud@laposte.net', 'aze'),
-(7, 'pmlo', 'AdminAdmin', 'vprigaud@laposte.net', 'aze'),
-(8, 'fevz', 'Adam', 'vprigaud@laposte.net', 'aze'),
-(9, 'zze', 'dmominique', 'vprigaud@laposte.net', 'aze'),
-(10, 'plpzcd', 'Alice', 'vprigaud@laposte.net', 'aze'),
-(11, 'zdc', 'noémi', 'vprigaud@laposte.net', 'aze'),
-(12, 'dcz', 'iris', 'vprigaud@laposte.net', 'aze'),
-(13, 'aezr', 'dimitri', 'vprigaud@laposte.net', 'aze'),
-(14, 'ezqcd', 'nimad', 'vprigaud@laposte.net', 'aze');
+(1, 'bot', 'bot', 'bot@deploy.itinet.fr', 'aqw'),
+(2, 'azertyuiop', 'azertyuiop', 'aze@deploy.itinet.fr', 'azertyuiop'),
+(3, 'qsdfghjklvbn', 'wxcvbn', 'aze@deploy.itinet.fr', 'wxcvbn'),
+(4, 'aqw', 'aqw', 'aqw@deploy.itinet.fr', 'aqw');
 
 INSERT INTO PROJETS(projet_id,date_de_creation,nom_projet,mdp,langage,description,logo,git_sftp,db_active)
 VALUES ('1','2016-12-12','deploy',1,'PHP&MYSQL','Cest nous','test.jpg',1,0);
 INSERT INTO PROJETS(projet_id,date_de_creation,nom_projet,mdp,langage,description,logo,git_sftp,db_active)
-VALUES ('2','2016-12-12','nom_p2',2,'langage','description','F-D.jpg',0,1);
+VALUES ('2','2016-12-12','nike',2,'langage','description','F-D.jpg',0,1);
 INSERT INTO PROJETS(projet_id,date_de_creation,nom_projet,mdp,langage,description,logo,git_sftp,db_active)
-VALUES ('3','2016-12-12','nom_p3',3,'langage','description','F-D.jpg',1,1);
+VALUES ('3','2016-12-12','robot',3,'langage','description','F-D.jpg',1,1);
 INSERT INTO PROJETS(projet_id,date_de_creation,nom_projet,mdp,langage,description,logo,git_sftp,db_active)
-VALUES ('4','2016-12-12','nom_p4',4,'langage','description','F-D.jpg',0,0);
+VALUES ('4','2016-12-12','chacha',4,'langage','description','F-D.jpg',0,0);
 
-INSERT INTO `STATUT` (`user_id`, `projet_id`, `statut`) VALUES
-(3, 3, 1),
-(2, 1, 0),
-(2, 4, 0);
+INSERT INTO `STATUT` (`user_id`, `projet_id`, `statut`, `deploy`) VALUES
+(1, 1, 1, 0),
+(3, 3, 1, 0),
+(2, 2, 1, 0),
+(4, 4, 1, 0);
 
 
 -- INSERT INTO MESSAGES(id_destinataire, user_id, titre, message) VALUES( 0, '1', '', 'Bienvenue');
@@ -76,3 +68,4 @@ INSERT INTO `STATUT` (`user_id`, `projet_id`, `statut`) VALUES
 -- statut SMALLINT,
 -- titre text NOT NULL,
 -- message text NOT NULL)); 
+

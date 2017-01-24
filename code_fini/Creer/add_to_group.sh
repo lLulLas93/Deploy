@@ -5,11 +5,11 @@
 #$3 = Chef de projet
 
 add_alias_mail(){
-sed -i -e "s/$1@deploy.itinet.fr/$1@deploy.itinet.fr $2@deploy.itinet.fr/" /etc/postfix/alias
-postmap /etc/postfix/alias
+sudo sed -i -e "s/$1@deploy.itinet.fr/$1@deploy.itinet.fr $2@deploy.itinet.fr/" /etc/postfix/alias
+sudo postmap /etc/postfix/alias
 
 
-telnet deploy.itinet.fr smtp << FIN
+sudo telnet deploy.itinet.fr smtp << FIN
 ehlo deploy.itinet.fr
 
 mail from:$3@deploy.itinet.fr
@@ -39,8 +39,8 @@ add_alias_mail $1 $2 $3
 
 add_user_group()
 {
-        usermod $2 -aG $1
-	echo "#$2@deploy.itinet.fr" >> /home/$1/.ssh/authorized_keys
-	cat /home/$2/.ssh/id_rsa.pub >> /home/$1/.ssh/authorized_keys
+sudo    usermod $2 -aG $1
+sudo sh -c "echo '#$2@deploy.itinet.fr' >> /home/$1/.ssh/authorized_keys"
+sudo sh -c	"cat /home/$2/.ssh/id_rsa.pub >> /home/$1/.ssh/authorized_keys"
 }
 add_user_group $1 $2

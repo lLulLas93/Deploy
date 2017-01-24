@@ -29,6 +29,7 @@ for ($i = 0; $i < $total; $i++) {
                 $id = $num_inst->fetch();
                 $user = $id['login'];
 		$projet = $i;
+		$projet++;
 
 	$rep_dest = "./modele/reception/";	
 	if(move_uploaded_file($_FILES['image']['tmp_name'],$rep_dest . $_FILES['image']['name'])){
@@ -41,8 +42,8 @@ for ($i = 0; $i < $total; $i++) {
 	}
 	$pdo -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	$insertion = "
-				INSERT INTO PROJETS(Date_de_creation,Nom_projet,db_active,git_sftp,Langage,Description,Logo)
-				VALUES ('$date_de_creation','$nom_p',1,1,'$langage','$description','$logo')";
+				INSERT INTO PROJETS(Date_de_creation,Nom_projet,mdp,db_active,git_sftp,Langage,Description,Logo)
+				VALUES ('$date_de_creation','$nom_p','$mdp',1,1,'$langage','$description','$logo')";
 
 	$insertion2 = "
 				INSERT INTO STATUT(Deploy,projet_id,statut,user_id)
