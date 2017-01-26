@@ -40,7 +40,7 @@ sudo sh -c '	echo " bon"'
 sudo		mkdir /home/$1/.ssh
 sudo		touch /home/$1/.ssh/authorized_keys
 		echo "#$3@deploy.itinet.fr" | sudo tee /home/$1/.ssh/authorized_keys
-		echo /home/$3/.ssh/id_rsa.pub | sudo tee -a  /home/$1/.ssh/authorized_keys
+		echo "/home/$3/.ssh/id_rsa.pub" | sudo tee -a  /home/$1/.ssh/authorized_keys
 sudo		chown $1:$1 -R /var/deploy/gits/$1
 sudo		chmod -R 760 /var/deploy/gits/$1
 sudo		chown $1:$1 -R /home/$1/
@@ -79,7 +79,7 @@ mysql -h "localhost" -u "root" "-pdeployitdbinside" -D "mysql" -e "CREATE USER '
 #creation de l'alias
 create_alias(){
 
-echo "$1" | sudo tee /etc/postfix/alias
+echo "$1" | sudo tee -a /etc/postfix/alias
 sudo sed -i -e "s/^$1/$1@deploy.itinet.fr $3@deploy.itinet.fr /" /etc/postfix/alias
 sudo postmap /etc/postfix/alias
 

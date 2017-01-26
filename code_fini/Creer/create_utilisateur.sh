@@ -27,6 +27,7 @@ FIN
 	</User>" | sudo tee -a /etc/ssh/sftp_config 
 		
 	#Génération, sauvegarde clé SSH
+sudo	mkdir /home/$1
 sudo	mkdir /home/$1/.ssh
 sudo	ssh-keygen -q -t rsa -f /home/$1/.ssh/id_rsa -C '' -N ''
 	

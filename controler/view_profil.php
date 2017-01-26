@@ -5,10 +5,12 @@ include('./view/nav.html');
 include('./view/view_profil.html');
 include('./modele/view_profil.php');
 
-if($donnees_2['deploy'] == 0) {
-        $etat = 'non deploye';
-} else {
+$prenom = $_SESSION['prenom'];
+
+if($donnees_2['deploy'] == 1) {
         $etat = 'deploye';
+} else {
+        $etat = 'non deploye';
 };
 
 echo '<div class="row">
@@ -35,7 +37,11 @@ echo '<div class="row">
                                   <td>';
 
 for($i=0;$i<count($donnees_3);$i++) {
-	echo $donnees_3[$i]['nom'].' - ';
+	if($donnees_3[$i]['prenom'] == $prenom) {
+		echo '<b>'.$donnees_3[$i]['prenom'].'</b>  - ';
+	} else {
+		echo $donnees_3[$i]['prenom'].' - ';
+	};
 };
 
 echo '</td>
@@ -67,7 +73,7 @@ echo '</td>
          </div>
 
 <font size=5>Informations personnelles</font><p><p>
-	<font size=5><span class="label label-info">Nom :</span></font> '.$donnees['nom'].'<input type="hidden" name="prenom" value="'.$donnees['nom'].'">
+	<font size=5><span class="label label-info">Prenom :</span></font> '.$donnees['prenom'].'<input type="hidden" name="prenom" value="'.$donnees['prenom'].'">
 	<p><p>
 	<font size=5><span class="label label-info">Login :</span></font> '.$donnees['login'].'<input type="hidden" name="nom" value="'.$donnees['login'].'">
 	<p><p>

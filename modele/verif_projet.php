@@ -10,6 +10,7 @@ $logo = $_FILES['image']['name'];
 $mdp = $_POST['mdp'];
 $date_de_creation = "$a";
 $instigateur = $_SESSION['id'];
+$user = $_SESSION['prenom'];
 
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $requete1 = $pdo->prepare("SELECT * FROM PROJETS");
@@ -25,9 +26,6 @@ for ($i = 0; $i < $total; $i++) {
         echo "<meta http-equiv='refresh' content='2; url=index.php?page=create_projet&projet' />";
     } 
 }
-		$num_inst = $pdo->query("SELECT login FROM UTILISATEURS WHERE user_id=$instigateur");
-                $id = $num_inst->fetch();
-                $user = $id['login'];
 		$projet = $i;
 		$projet++;
 

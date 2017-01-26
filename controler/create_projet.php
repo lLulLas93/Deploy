@@ -4,7 +4,7 @@ echo "<br/><br/<br/><br/>>".$i;
 			$count = $pdo->query("SELECT statut AS nb FROM STATUT WHERE user_id = $id");
 			$total = $count->fetch();
 	print_r($total);
-	if($total['nb'] >= 4) {
+	if($total['nb'] >= 1) {
 		
 include('./view/head.html');
 include('./view/nav.html');
