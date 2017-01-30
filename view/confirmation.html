@@ -1,0 +1,32 @@
+<body>
+    <div class="confirmationIns"><br/><br/><br/><br/><br/><br/><br/><br/>
+<center>        
+        <fieldset>
+        <h3>Merci de votre inscription !</h3></br>
+        </br>
+        </br>
+        <?php
+               $login = $_SESSION['login']; 
+               $nom = $_SESSION['nom']; 
+               $password = $_SESSION['password']; 
+	echo "<h4> login : $login
+        </br>
+		password : $password
+        </br>
+		mail : $nom@deploy.itinet.fr
+        </br>
+		Clé Privé :
+        </br>
+		Clé Public : 
+        </br>
+		Tout ses informations resteront à votre disposition sur la partie profil
+
+	</h4></br></br>
+            <h3>Merci de votre confiance  $login !<h3>"
+?>
+                </fieldset>
+</center>
+    </div>
+</body>
+
+</html>

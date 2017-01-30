@@ -1,7 +1,6 @@
 <?php
-
 include('./view/head.html');
 include('./view/nav.html');
-include('./view/principale.html');
+include('./modele/view_projet.php');
 
 ?>
