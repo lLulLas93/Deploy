@@ -1,5 +1,4 @@
 <?php
-print_r($_POST);
 $n_p = $_POST['n_projet'];
 $id_p = $_POST['id_projet'];
 

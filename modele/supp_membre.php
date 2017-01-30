@@ -32,7 +32,6 @@ $chef = $_SESSION['prenom'];
 	$requete1->execute();
 	$resultat = $requete1->fetchall();
 	$user_id = $resultat[0]['user_id'];
-	print_r($resultat);
 	$pdo -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	$sql = "DELETE FROM STATUT WHERE user_id ='$user_id' and projet_id ='$id_projet'";
 	$pdo->exec($sql);

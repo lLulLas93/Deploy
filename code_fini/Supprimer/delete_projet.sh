@@ -21,7 +21,7 @@ sudo /etc/init.d/apache2 reload
 sudo ssh -i /home/maxime/.ssh/id_rsa root@dedibox.itinet.fr
 
 #Supprime le home et le git du projet
-sudo rm -d -R /home/$1
+sudo rm -dR /home/$1/
 sudo rm -d -R /var/deploy/gits/$1
 
 #Supprime l'alias du projet dans le base de donnée postfix

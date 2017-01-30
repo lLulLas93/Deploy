@@ -62,6 +62,12 @@ echo '<pre><pre>
 	  <input type="hidden" name="id_projet" value="'.$id_projet.'">
 </form>
 
+<form action="index.php?page=supp_membre" method="POST">
+      <button type="submit" class="btn btn-primary btn-lg btn-block" >Supprimer un membre</button>
+	  <input type="hidden" name="n_projet" value="'.$nom_projet.'">
+	  <input type="hidden" name="id_projet" value="'.$id_projet.'">
+</form>
+
 <form action="index.php?page=deploy_projet" method="POST">
      <button type="submit" class="btn btn-primary btn-lg btn-block" >Deploiement </button>
 	  <input type="hidden" name="n_projet" value="'.$nom_projet.'">

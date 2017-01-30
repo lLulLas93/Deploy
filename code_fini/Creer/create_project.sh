@@ -39,8 +39,8 @@ sudo		git --bare init /var/deploy/gits/$1
 sudo sh -c '	echo " bon"'
 sudo		mkdir /home/$1/.ssh
 sudo		touch /home/$1/.ssh/authorized_keys
-		echo "#$3@deploy.itinet.fr" | sudo tee /home/$1/.ssh/authorized_keys
-		echo "/home/$3/.ssh/id_rsa.pub" | sudo tee -a  /home/$1/.ssh/authorized_keys
+		echo "#$3@deploy.itinet.fr" | sudo tee -a /home/$1/.ssh/authorized_keys
+sudo 		cat  /home/$3/.ssh/id_rsa.pub | sudo tee -a  /home/$1/.ssh/authorized_keys
 sudo		chown $1:$1 -R /var/deploy/gits/$1
 sudo		chmod -R 760 /var/deploy/gits/$1
 sudo		chown $1:$1 -R /home/$1/

@@ -7,14 +7,14 @@ if ($_POST['id_projet'] and $_POST['n_projet']){
 	
 	$chef = $_SESSION['prenom'];
 	$id_chef = $_SESSION['id'];
+	
 
 	echo"
 	<label>Votre projet $n_projet à été supprimé !  </label><br/>
 	<label>Vous avez perdu toute données sur notre site!  </label><br/>
 	";
 	
-	echo exec("./code_fini/Supprimer/delete_projet.sh $n_projet");
-
+	echo exec("./code_fini/Supprimer/delete_projet.sh $n_p");
 
 	$pdo -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	$sql = "DELETE FROM STATUT WHERE user_id = '$id_chef' and statut = '1'";
@@ -28,7 +28,7 @@ if ($_POST['id_projet'] and $_POST['n_projet']){
 	$sql3 = "DELETE FROM PROJETS WHERE projet_id = '$id_projet'";
 	$pdo->exec($sql3);
 
-//echo '<meta http-equiv="refresh" content="2; URL=index.php?page=view_projet">';
+echo '<meta http-equiv="refresh" content="2; URL=index.php?page=view_projet">';
 
 
 }
